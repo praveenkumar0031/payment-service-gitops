@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: "123456789012.dkr.ecr.ap-south-1.amazonaws.com/payment-service" # Replace with your ECR URI
+  pullPolicy: IfNotPresent
+  tag: "latest" # This will be automatically updated by GitHub Actions
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    scheme: "internet-facing"
+    targetType: "ip"  # Required for EKS Fargate or advanced routing
+  paths:
+    - path: /
+      pathType: Prefix

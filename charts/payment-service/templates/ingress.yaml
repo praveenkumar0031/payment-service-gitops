@@ -1,0 +1,29 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: payment-service-ingress
+  annotations:
+    # Explicitly telling EKS to spin up an AWS Application Load Balancer
+    kubernetes.io/ingress.class: {{ .Values.ingress.className | quote }}
+    alb.ingress.kubernetes.io/scheme: {{ .Values.ingress.annotations.scheme | quote }}
+    alb.ingress.kubernetes.io/target-type: {{ .Values.ingress.annotations.targetType | quote }}
+    
+    # Target Group Health Checks needed for AWS ALB
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+    alb.ingress.kubernetes.io/healthcheck-port: 'traffic-port'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+spec:
+  rules:
+    - http:
+        paths:
+          {{- range .Values.ingress.paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: payment-service
+                port:
+                  number: 80
+          {{- end }}
+{{- end -}}
