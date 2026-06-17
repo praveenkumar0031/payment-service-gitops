@@ -6,9 +6,11 @@ image:
   tag: "1da5549327c10c71dda3af1671039a063a37b49f"
 
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 80
   targetPort: 80
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
 
 ingress:
   enabled: true
