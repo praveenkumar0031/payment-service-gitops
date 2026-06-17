@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: "123456789012.dkr.ecr.ap-south-1.amazonaws.com/payment-service" # Replace with your ECR URI
   pullPolicy: IfNotPresent
-  tag: "latest" # This will be automatically updated by GitHub Actions
+  tag: "d94d7efe71a032ef6a503d1ae6907c613d3b5423"
 
 service:
   type: ClusterIP
