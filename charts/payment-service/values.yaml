@@ -1,9 +1,9 @@
 replicaCount: 2
 
 image:
-  repository: "123456789012.dkr.ecr.ap-south-1.amazonaws.com/payment-service" # Replace with your ECR URI
+  repository: 013958955427.dkr.ecr.us-east-1.amazonaws.com/payment-service
   pullPolicy: IfNotPresent
-  tag: "d94d7efe71a032ef6a503d1ae6907c613d3b5423"
+  tag: "1da5549327c10c71dda3af1671039a063a37b49f"
 
 service:
   type: ClusterIP
