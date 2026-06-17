@@ -6,9 +6,9 @@ image:
   tag: "1da5549327c10c71dda3af1671039a063a37b49f"
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
-  targetPort: 8080
+  targetPort: 80
 
 ingress:
   enabled: true
