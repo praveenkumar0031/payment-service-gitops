@@ -1,9 +1,9 @@
 replicaCount: 2
 
 image:
-  repository: 013958955427.dkr.ecr.us-east-1.amazonaws.com/payment-service
+  repository: praveen0031/payment-service
   pullPolicy: IfNotPresent
-  tag: "b83fe094ae9db65396a20c59f2b2d79c0b3ce0b6"
+  tag: "794d9fd205c691078b226a86708fa0d754a3f097"
 
 service:
   type: LoadBalancer
