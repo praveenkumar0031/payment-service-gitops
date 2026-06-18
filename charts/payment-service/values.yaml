@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: 013958955427.dkr.ecr.us-east-1.amazonaws.com/payment-service
   pullPolicy: IfNotPresent
-  tag: "1da5549327c10c71dda3af1671039a063a37b49f"
+  tag: "b83fe094ae9db65396a20c59f2b2d79c0b3ce0b6"
 
 service:
   type: LoadBalancer
